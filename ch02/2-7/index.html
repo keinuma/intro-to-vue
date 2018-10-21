@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+<body>
+<div id="app">
+    <button v-bind:title="loggedInButton">購入</button>
+    <button v-bind:disabled="!canBuy">
+        購入
+    </button>
+    <p>
+        {{ items[0].name }}
+    </p>
+</div>
+<script>
+    let items = [
+        {
+            name: '鉛筆',
+            price: 300,
+            quantity: 0
+        },
+        {
+            name: 'ノート',
+            price: 400,
+            quantity: 0
+        },
+        {
+            name: '消しゴム',
+            price: 500,
+            quantity: 0
+        }
+    ]
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            items: items,
+            canBuy: false,
+            loggedInButton: 'ログイン済みのため購入できます'
+        }
+    })
+</script>
+</body>
+</html>
